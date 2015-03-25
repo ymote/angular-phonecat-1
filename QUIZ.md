@@ -1,3 +1,5 @@
-试试把关于数学运算的新表达式添加到index.html第16行：
+Add the following math expression to **index.html** line 16:
 
-```<p>1 + 2 = {{ 1 + 2 }}</p>```
+    <p>1 + 2 = {{ 1 + 2 }}</p>
+
+Check what the result is.
