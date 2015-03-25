@@ -1,8 +1,7 @@
 * Add another binding to `index.html`. For example:
 
-  ```html
-  <p>Total number of phones: {{phones.length}}</p>
-  ```
+    ```<p>Total number of phones: {{phones.length}}</p>```
+
 
 * Create a new model property in the controller and bind to it from the template:
 
