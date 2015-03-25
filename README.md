@@ -1,24 +1,56 @@
-**视图和模板**
+Now it's time to make the web page dynamic — with AngularJS. We'll also add a test that verifies the
+code for the controller we are going to add.
 
-我们把前面练习中的静态编码的手机列表替换掉了，这里我们使用```ngRepeat```指令和两个用花括号包裹起来的AngularJS表达式
-——```{{phone.name}}```和```{{phone.snippet}}```——能达到同样的效果。
+## View and Template
 
-1. 在```<li>```标签里面的```ng-repeat="phone in phones"```语句是一个AngularJS迭代器。这个迭代器告诉AngularJS用第一个
-```<li>```标签作为模板为列表中的每一部手机创建一个```<li>```元素。
+In Angular, the __view__ is a projection of the model through the HTML __template__. This means that
+whenever the model changes, Angular refreshes the appropriate binding points, which updates the
+view.
 
-2. 正如我们在第0步时学到的，包裹在```phone.name```和```phone.snippet```周围的花括号标识着数据绑定。和常量计算不同的是，
-这里的表达式实际上是我们应用的一个数据模型引用，这些我们在```PhoneListCtrl```控制器里面都设置好了。
+We replaced the hard-coded phone list with the {@link ng.directive:ngRepeat ngRepeat directive}
+and two {@link guide/expression Angular expressions}:
 
-**模型和控制器**
+* The `ng-repeat="phone in phones"` attribute in the `<li>` tag is an Angular repeater directive.
+The repeater tells Angular to create a `<li>` element for each phone in the list using the `<li>`
+tag as the template.
+* The expressions wrapped in curly braces (`{{phone.name}}` and `{{phone.snippet}}`) will be replaced
+by the value of the expressions.
 
-在```PhoneListCtrl```控制器里面初始化了数据模型（这里只不过是一个包含了数组的函数，数组中存储的对象是手机数据列表）
+We have added a new directive, called `ng-controller`, which attaches a `PhoneListCtrl`
+__controller__ to the &lt;body&gt; tag.  At this point:
 
-尽管控制器看起来并没有起到什么控制的作用，但是它在这里起到了至关重要的作用。通过给定我们数据模型的语境，控制器允许我们建立模型和视图之间的数据绑定。
-我们是这样把表现层，数据和逻辑部件联系在一起的：
+* The expressions in curly braces (`{{phone.name}}` and `{{phone.snippet}}` denote
+bindings, which are referring to our application model, which is set up in our `PhoneListCtrl`
+controller.
 
-1. ```PhoneListCtrl```——控制器方法的名字（在JS文件```controllers.js```中）和```<body>```标签里面的ngController指令的值相匹配。
-2. 手机的数据此时与注入到我们控制器函数的作用域（```$scope```）相关联。当应用启动之后，会有一个根作用域被创建出来，
-而控制器的作用域是根作用域的一个典型后继。这个控制器的作用域对所有```<body ng-controller="PhoneListCtrl">```标记内部的数据绑定有效。
+## Model and Controller
 
->AngularJS的作用域理论非常重要：一个作用域可以视作模板、模型和控制器协同工作的粘接器。AngularJS使用作用域，同时还有模板中的信息，数据模型和控制器。
-这些可以帮助模型和视图分离，但是他们两者确实是同步的！任何对于模型的更改都会即时反映在视图上；任何在视图上的更改都会被立刻体现在模型中。
+The data __model__ (a simple array  of phones in object literal notation) is now instantiated within
+the `PhoneListCtrl` __controller__. The __controller__ is simply a constructor function that takes a
+`$scope` parameter.
+
+We declared a controller called `PhoneListCtrl` and registered it in an AngularJS
+module, `phonecatApp`. Notice that our `ng-app` directive (on the `<html>` tag) now specifies the `phonecatApp`
+module name as the module to load when bootstrapping the Angular application.
+
+Although the controller is not yet doing very much, it plays a crucial role. By providing context
+for our data model, the controller allows us to establish data-binding between
+the model and the view. We connected the dots between the presentation, data, and logic components
+as follows:
+
+* The {@link ng.directive:ngController ngController} directive, located on the `<body>` tag,
+references the name of our controller, `PhoneListCtrl` (located in the JavaScript file
+`controllers.js`).
+
+* The `PhoneListCtrl` controller attaches the phone data to the `$scope` that was injected into our
+controller function. This *scope* is a prototypical descendant of the *root scope* that was created
+when the application was defined. This controller scope is available to all bindings located within
+the `<body ng-controller="PhoneListCtrl">` tag.
+
+### Scope
+
+The concept of a scope in Angular is crucial. A scope can be seen as the glue which allows the
+template, model and controller to work together. Angular uses scopes, along with the information
+contained in the template, data model, and controller, to keep models and views separate, but in
+sync. Any changes made to the model are reflected in the view; any changes that occur in the view
+are reflected in the model.

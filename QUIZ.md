@@ -1,9 +1,11 @@
-1. 为index.html添加另一个数据绑定：
+* Add another binding to `index.html`. For example:
 
-  ```<p>Total number of phones: {{phones.length}}</p>```
+  ```html
+  <p>Total number of phones: {{phones.length}}</p>
+  ```
 
-2. 在```PhoneListCtrl```创建一个新的数据模型属性，并且把它绑定到模板上:
- 
- ```$scope.hello = 'Hello, World!'```
- 
-  在页面上输出该属性 Hello, World!
+* Create a new model property in the controller and bind to it from the template:
+
+    ```$scope.hello = 'Hello, World!'```
+
+  Output the value in html - Hello, World!
