@@ -1,17 +1,23 @@
-打开右下preview窗口，您应该已经看到了我们的初始应用，很简单，但说明我们的项目已经可以运行了。
-应用中显示的“Nothing here yet!”是由HTML代码构建而成，代码中包含了AngularJS的关键元素，正是我们需要学习的。
+Open the **preview** panel in the bottom right, you shoud see our default app. It's not very exciting, but that's OK.
 
-**基本介绍**
+The HTML page that displays "Nothing here yet!". The code contains some key Angular elements that we will need as we progress.
 
-1. 在初始界面右半边上半部分是相关代码的显示。整个程序是在我们的后台运行，我们会把和本章相关的代码拿出来详细介绍，其它辅助的代码则会略过。
-整个教程的所有代码在github上都是可见的，如果遇到不清楚的地方可以去参考下完整代码。
+### Course Introduction
 
-2. 通常```html```文件中都会有三个```<meta/>```标签和内容无关，这是我们用来防止缓存用的，使得预览可以看到实时结果。在您自己的项目中并不需要它们。
+1. The left panel has two parts: the upper half contains documentation and code explanation, the lower half is the exercise we want you to 
+complete. 
 
-3. ```link```中```lib```指向引用的标准库文件(比如AngularJS),这些文件在网上或者github中都可以看到。除了Angular相关的Javascript文件外，
-我们还会引用bootstrap css框架来修饰CSS，以及jquery来补充Angular。
+2. The right panel contains code editor and preview window. Every time an exercise is submitted, we will save your code and run it. So the result 
+will show up in the preview window. 
 
-4. 右半边下半部分包括代码详细讲解的窗口以及预览窗口。通常这里会是Angular中概念以及用法的归纳性质的介绍，具体的代码的详细实现都是在讲解窗口中，
-可以用来对照代码来帮助理解。
+3. A webapp is a complex project, which often contains dozens' of files (html, js, css, library dependencies ...). For the interesting of learning, 
+we only show the most relevant files to an exercise. If you need to get an overall picture of the project, you can check the code in your github 
+account (We push all your code in the courses to your github account).
 
-5. 预览窗口提供了应用初始化的预览以及完成练习提交后的检验。提供了对代码的直观理解。
+### Code structure for this course
+
+1. We have three `<meta>` tags in the main **index.html** file which are not relevant to the course. They are used to prevent brower caching so as to 
+see the latest result in preview window. Normally You do not need them in your own project.
+
+2. We put the library files in the lib folder. There are references to them in **index.html**. We will not show them in code editor (they are quite long). 
+The library files are angular, jquery and bootstrap css framwork.

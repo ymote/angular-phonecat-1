@@ -1,1 +1,1 @@
-提交并预览，迈出学习AngularJS的第一步。
+Submit and preview the result. Let's start building the Angular PhoneCat app!
