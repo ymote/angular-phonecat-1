@@ -1,3 +1,3 @@
-尝试继续添加静态HTML代码到```index.html```30行， 例如：
+Try input the following code to line 30 on **index.html**:
 
-   ``` <p>Total number of phones: 2</p>```
+    <p>Total number of phones: 2</p>
