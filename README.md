@@ -1,12 +1,44 @@
-我们还是通过前一个练习来介绍引导AngularJS应用。下面的介绍比较抽象，基本上理解了代码实现方式以及Angular托管了动态更新就行了。
+### The **index.html**
 
-通过ngApp指令来自动引导AngularJS应用是一种简洁的方式，适合大多数情况。在高级开发中，例如使用脚本装载应用，您也可以使用bootstrap手动引导AngularJS应用。
+**`ng-app` directive:**
 
-AngularJS应用引导过程有3个重要点：
+          <html ng-app>
 
-1. 注入器(injector)将用于创建此应用程序的依赖注入(dependency injection)；
-2. 注入器将会创建根作用域作为我们应用模型的范围；
-3. AngularJS将会链接根作用域中的DOM，从用ngApp标记的HTML标签开始，逐步处理DOM中指令和绑定。
+  The `ng-app` attribute represents an Angular directive named `ngApp` (Angular uses
+  `spinal-case` for its custom attributes and `camelCase` for the corresponding directives
+  which implement them).
+  This directive is used to flag the html element that Angular should consider to be the root element
+  of our application.
+  This gives application developers the freedom to tell Angular if the entire html page or only a
+  portion of it should be treated as the Angular application.
 
-一旦AngularJS应用引导完毕，它将继续侦听浏览器的HTML触发事件，如鼠标点击事件、按键事件、HTTP传入响应等改变DOM模型的事件。
-这类事件一旦发生，AngularJS将会自动检测变化，并作出相应的处理及更新。
+**AngularJS script tag:**
+
+          <script src="lib/angular.js"></script>
+
+  This code include the `angular.js` script which registers a callback that will be executed by the
+browser when the containing HTML page is fully downloaded. When the callback is executed, Angular
+looks for the {@link ng.directive:ngApp ngApp} directive. If
+Angular finds the directive, it will bootstrap the application with the root of the application DOM
+being the element on which the `ngApp` directive was defined.
+
+**Double-curly binding with an expression:**
+
+          Nothing here {{'yet' + '!'}}
+
+  This line demonstrates two core features of Angular's templating capabilities:
+
+    * a binding, denoted by double-curlies `{{ }}`
+    * a simple expression `'yet' + '!'` used in this binding.
+
+  The binding tells Angular that it should evaluate an expression and insert the result into the
+  DOM in place of the binding. Rather than a one-time insert, as we'll see in the next steps, a
+  binding will result in efficient continuous updates whenever the result of the expression
+  evaluation changes.
+
+  {@link guide/expression Angular expression} is a JavaScript-like code snippet that is
+  evaluated by Angular in the context of the current model scope, rather than within the scope of
+  the global context (`window`).
+
+  As expected, once this template is processed by Angular, the html page contains the text:
+  "Nothing here yet!".
