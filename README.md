@@ -38,7 +38,7 @@ for our data model, the controller allows us to establish data-binding between
 the model and the view. We connected the dots between the presentation, data, and logic components
 as follows:
 
-* The {@link ng.directive:ngController ngController} directive, located on the `<body>` tag,
+* The ngController directive, located on the `<body>` tag,
 references the name of our controller, `PhoneListCtrl` (located in the JavaScript file
 `controllers.js`).
 
