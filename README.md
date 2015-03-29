@@ -14,7 +14,7 @@ the DOM to reflect the current state of the model.
 
 <img  class="diagram" src="img/tutorial/tutorial_03.png">
 
-2. Use of the `filter` filter: The {@link ng.filter:filter filter} function uses the
+2. Use of the `filter` filter: The filter function uses the
 `query` value to create a new array that contains only those records that match the `query`.
 
   `ngRepeat` automatically updates the view in response to the changing number of phones returned

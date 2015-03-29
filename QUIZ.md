@@ -1,4 +1,4 @@
-1. use data binding to show `query` on line 24 of ***index.html***.
+1. Use data binding to show `query` on line 24 of ***index.html***.
 
 2. Add the `query` to page title.
 
