@@ -2,14 +2,14 @@ In this chapter, we will add a feature to let users control the order of the ite
 list. The dynamic ordering is implemented by creating a new model property, wiring it together with
 the repeater, and letting the data binding magic do the rest of the work.
 
-### We made the following changes to the ***index.html***:
+###  index.html
 
-1. First, we added a `<select>` html element named `orderProp`, so that our users can pick from the
+1 First, we added a `<select>` html element named `orderProp`, so that our users can pick from the
 two provided sorting options.
 
 <img class="diagram" src="img/tutorial/tutorial_04.png">
 
-2. We then chained the `filter` filter with <a href="https://docs.angularjs.org/api/ng/filter/orderBy" target="_blank">orderBy</a>
+2 We then chained the `filter` filter with <a href="https://docs.angularjs.org/api/ng/filter/orderBy" target="_blank">orderBy</a>
 filter to further process the input into the repeater. `orderBy` is a filter that takes an input
 array, copies it and reorders the copy which is then returned.
 
@@ -23,10 +23,10 @@ necessary!
 
 ### Controller
 
-1. We modified the `phones` model - the array of phones - and added an `age` property to each phone
+1 We modified the `phones` model - the array of phones - and added an `age` property to each phone
 record. This property is used to order phones by age.
 
-2. We added a line to the controller that sets the default value of `orderProp` to `age`. If we had
+2 We added a line to the controller that sets the default value of `orderProp` to `age`. If we had
 not set a default value here, the `orderBy` filter would remain uninitialized until our
 user picked an option from the drop down menu.
 
