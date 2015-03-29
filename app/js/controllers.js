@@ -17,6 +17,6 @@ phonecatApp.controller('PhoneListCtrl', function($scope) {
      'age': 3}
   ];
 
-  //删除下一行，查看排序顺序的变化
+  //change the default orderProp to see difference 
   $scope.orderProp = 'age';
 });
