@@ -1,3 +1,5 @@
-**1.** 用```ng-repeat```迭代器在```index.html```26，27行上创建一个简单的表格，使得```PhoneListCtrl```中```$scope.numbers```中的数字在表格中依次输出。
+**1.**  Play around with the `toBe` assertion in ***controllersSpec.js*** to check the test fail scenario. Make sure to change it back for the next 
+problem.
 
-**2.**  在完成这个练习后在```controllersSpec.js```中把toBe(3)改成toBe(4)，运行单元测试看看失败结果。
+**2.** Use `ng-repeat` to create an simple table on line 26,27 in ***index.html*** to show `$scope.numbers` in **PhoneListCtrl** iteratively.
+
