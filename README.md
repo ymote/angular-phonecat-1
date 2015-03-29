@@ -1,22 +1,38 @@
-在这个练习中我们增加一个让用户控制手机列表显示顺序的特性。在Angular中动态排序的实现只需要添加一个新的模型属性，把它和迭代器集成起来。数据绑定完成剩下的事情。
+In this chapter, we will add a feature to let users control the order of the items in the phone
+list. The dynamic ordering is implemented by creating a new model property, wiring it together with
+the repeater, and letting the data binding magic do the rest of the work.
 
-**我们在index.html中做了如下更改**
+### We made the following changes to the ***index.html***:
 
-1. 首先，我们增加了一个叫做```orderProp```的```<select>```标签，这样我们的用户就可以选择我们提供的两种排序方法。
+1. First, we added a `<select>` html element named `orderProp`, so that our users can pick from the
+two provided sorting options.
 
-2. 然后，在```filter```过滤器后面添加一个orderBy过滤器用其来处理进入迭代器的数据。```orderBy```过滤器以一个数组作为输入，复制一份副本，然后把副本重排序再输出到迭代器。
+<img class="diagram" src="img/tutorial/tutorial_04.png">
 
-AngularJS在```select```元素和```orderProp```模型之间创建了一个双向绑定。而后，```orderProp```会被用作```orderBy```过滤器的输入。
+2. We then chained the `filter` filter with <a href="https://docs.angularjs.org/api/ng/filter/orderBy" target="_blank">orderBy</a>
+filter to further process the input into the repeater. `orderBy` is a filter that takes an input
+array, copies it and reorders the copy which is then returned.
 
-正如我们之前讨论数据绑定和迭代器的时候所说的一样，无论什么时候数据模型发生了改变（比如用户在下拉菜单中选了不同的顺序），AngularJS的数据绑定会让视图自动更新。没有任何笨拙的DOM操作！
+Angular creates a two way data-binding between the select element and the `orderProp` model.
+`orderProp` is then used as the input for the `orderBy` filter.
 
-**控制器**
+As we discussed in the section about data-binding and the repeater in chapter 3, whenever the model
+changes (for example because a user changes the order with the select drop down menu), Angular's
+data-binding will cause the view to automatically update. No bloated DOM manipulation code is
+necessary!
 
-1. 我们修改了```phones```模型—— 手机的数组 ——为每一个手机记录其增加了一个```age```属性。我们会根据```age```属性来对手机进行排序。
+### Controller
 
-2. 我们在控制器代码里加了一行让```orderProp```的默认值为```age```。如果我们不设置默认值，这个模型会在我们的用户在下拉菜单选择一个顺序之前一直处于未初始化状态。
+1. We modified the `phones` model - the array of phones - and added an `age` property to each phone
+record. This property is used to order phones by age.
 
-现在我们详细讲解下双向数据绑定。注意到当应用在浏览器中加载时，“Newest”在下拉菜单中被选中。这是因为我们在控制器中把```orderProp```设置成了‘age’。
-所以绑定在从我们模型到用户界面的方向上起作用——即数据从模型到视图的绑定。
+2. We added a line to the controller that sets the default value of `orderProp` to `age`. If we had
+not set a default value here, the `orderBy` filter would remain uninitialized until our
+user picked an option from the drop down menu.
 
-现在当你在下拉菜单中选择“Alphabetically”，数据模型会被同时更新，并且手机列表数组会被重新排序。这个时候数据绑定从另一个方向产生了作用——即数据从视图到模型的绑定。
+  This is a good time to talk about two-way data-binding. Notice that when the app is loaded in the
+browser, "Newest" is selected in the drop down menu. This is because we set `orderProp` to `'age'`
+in the controller. So the binding works in the direction from our model to the UI. Now if you
+select "Alphabetically" in the drop down menu, the model will be updated as well and the phones
+will be reordered. That is the data-binding doing its job in the opposite direction — from the UI
+to the model.
