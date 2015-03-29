@@ -1,8 +1,11 @@
-在test/e2e/scenarios.js第30行开始的```it```块中加入端到端测试代码。这个测试是这样的，现在页面上有个id是```status```的```<div>```元素，我们要在这个元素中显示出```Current filter:```加上```query```的值，
-使得我们可以了解现在搜索的内容。
+Fill in the `it` block on line 30 of ***scenarios.js***. There is a `<div>` with id `status` on page. 
+We want to show `Current filter:` plus the `query` value in the `<div>`. Write end to end test code to test it.
 
-完成从35行开始的内容，使用```protractor```的```by.css```方法来找到id为status的```<div>```。```by.css```让我们可以用css的选择器来找到元素，具体的使用方法请上网查询。
+Specifically:
 
-第39－40行上我们要清空query的值并输入nexus，实现的方法可参考上一个```it```模块。
+**1.** From line 35 in ***scenarios.js****, use `by.css` to find the `<div>` with id `status`. 
+`by.css` let us to select DOM element with CSS selector. Please check protractor's apis for its usage.
 
-刷新浏览器，端到端测试器会报告测试失败。编辑index.html，按提示修改24行内容为```Current filter:```加上query的绑定，使得测试通过。
+**2.** On line 39-40, we want to clear query value and input `nexus`. Follow the implementation in the previous `it` block.
+
+**3.** We also need to change ***index.htm*** to let the test pass. On line 24, add `Current filter:`  as well as the data binding to `query`.
