@@ -1,9 +1,15 @@
-现在我们把注意力转移到端到端测试上来。
+Now we turn our attention to end to end test.
 
-所有端到端测试首先第一步是模拟访问网页，我们通过```browser.get```实现。
+The first thing in e2e test is to simulate opening the webpage. We use `browser.get` to do this.
 
-现在我们想像网页已经打开了，终端用户并不知道代码是怎么写的，他们通过点击网页上的各种控件元素来观察应用的表现是否正确。
+E2E test is all about simulate user behavior on our web page. To this end, **Protractor** provide various way for us to 
+write code to select DOM elements on page.
 
-所以端到端测试对页面上元素的选择非常重要。幸运的是protractor提供了很强大并容易理解的选择手段。
+Our test logic is as follows:
 
-我们首先确定页面上有三个phone显示，然后在搜索的输入框中输入关键词，确认过滤功能的正确性。其次我们操作排序的下拉筐，改变排序的选项，检查页面上phone的显示顺序的正确性。
+1. We make sure there are there phones on our imagiary web page.
+2. We write code to input keyword in the search box, and use protractor's selector api to make sure filtering works.
+3. We simulate the operation of change sort options in dropdown list and check the order of phones on page.
+
+
+End to end test is about interacting with our web page and find out if it behaves as we expected. 
