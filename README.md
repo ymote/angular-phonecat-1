@@ -11,19 +11,17 @@ The `phones.json` file is a dataset that contains a larger list of phones stored
 
 ### $http
 
-We use Angular's `$http` service in our controller to make an HTTP
+We'll use Angular's `$http` service in our controller to make an HTTP
 request to fetch the data in the `phones.json` file.
+
+
+### DI
 
 Services are managed by Angular's DI subsystem. Dependency injection
 helps to make your web apps both well-structured (e.g., separate components for presentation, data,
 and control) and loosely coupled (dependencies between components are not resolved by the
 components themselves, but by the DI subsystem).
 
-### Promise
-
-The `$http` service returns a <a href="https://docs.angularjs.org/api/ng/service/$q" target="_blank">promise</a> object with a `success`
-method. We call this method to handle the asynchronous response. Notice that Angular detected the
-json response and parsed it for us!
 
 To use a service in Angular, you simply declare the names of the dependencies you need as arguments
 to the controller's constructor function, as follows:
