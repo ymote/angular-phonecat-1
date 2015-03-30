@@ -1,7 +1,20 @@
-我们先通过一个单元测试来验证双向绑定实现的正确性。下一个练习我们转为端对端测试验证。
+Whenever we add a new feature, we should always write a test script to test it. 
+The TDD (Test Driven Development) approach makes our program more robust.
 
-我们使用Jasmine的接口把```PhoneListCtrl```控制器提取到一个beforeEach块中，这个块会被所有的父块describe中的所有测试所共享。
+The unit test needs to verify that the default ordering property is set.
 
-在每个```it()```测试模块执行前，我们先加载必要的应用程序－包括```phonecatApp```模块，以及模拟的```PhoneListCtrl```。我们在控制器上传入一个空的Javascript对象来模拟作用域```scope```。
+We used Jasmine's API to extract the controller construction into a `beforeEach` block, which is
+shared by all tests in the parent `describe` block.
 
-经过控制器的调用，```scope```上应该会有```phones```和```age```两个对象，我们就可以对这两个对象进行测试了。现在对单元测试的模式应该比较熟悉了吧。
+Before the execution of every `it()` block, we load necessary modules --  our main module `phonecatApp`, 
+and the **PhoneListCtrl** controller. This makes sure we set the correct context to run test. 
+
+We also need to pass in an empty Javascript object to simulate the `scope`. Notice we are not use Angular's 
+**scope** because we want to test our code. 
+
+In our controller code, We add two attributes -- `phones`, and `age` to the `scope` in **PhoneListCtrl**. 
+So to test the controller, we need to check the existence of these variables. 
+
+If the controller behaves as we expected, our empty `scope` object should now have two variables. And we can use 
+Jasmine syntax to check them.
+
