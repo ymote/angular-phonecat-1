@@ -23,7 +23,7 @@ describe('Test PhoneCat App', function() {
 
       query.clear();
       query.sendKeys('motorola');
-      //phoneList这时应该有几个phone?
+      //how many phones in phoneList now?
       expect(phoneList.count()).toBe(0);
     });
 
@@ -48,7 +48,7 @@ describe('Test PhoneCat App', function() {
 
       element(by.model('orderProp')).element(by.css('option[value="name"]')).click();
 
-      //观察页面，当我们按照名字来排列的时候，排列的顺序应该是什么？
+      //use the preview panel to check the web page, what is the order of phones now?
       expect(getNames()).toEqual([
         "",
         ""
