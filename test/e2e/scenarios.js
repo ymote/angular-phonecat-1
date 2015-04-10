@@ -23,7 +23,7 @@ describe('PhoneCat App', function() {
 
       query.clear();
       query.sendKeys('motorola');
-      //现在包含motorola的手机有几部呢？
+      //how many phones are on page now
       expect(phoneList.count()).toBe(0);
     });
 
@@ -64,14 +64,14 @@ describe('PhoneCat App', function() {
       });
     });
 
-    //完成以下测试内容
+    //finish the below test code block
     it('should render phone specific links for motorola phones', function() {
       var query = element(by.model('query'));
       query.sendKeys('motorola');
-      //点击第一部手机的链接(css语法 nth-child(x) 可以用来选择第x个元素，具体用法请上网查询)
+      //you can use css syntax nth-child(x) to select x element in list. 
       //element(by.css('.phones li a')).click();
       browser.getLocationAbsUrl().then(function(url) {
-        //现在网页的地址应该是什么呢？
+        //what the url path now？
         expect(url.split('#')[1]).toBe('enter the address here ...');
       });
     });
