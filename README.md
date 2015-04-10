@@ -1,10 +1,9 @@
-这个练习我们添加了一个新的端到端测试来验证应用为手机视图产生了正确的链接。观察**scenarios.js**文件，我们一点点往这个文件中增加新的测试内容，这是一个很好的习惯。
-这样执行时旧的测试也会一块执行，这样保证我们新增加的代码不会破坏之前存在的功能。
+We added a new end-to-end test to verify that the app is generating correct links to the phone views that we will implement in the upcoming steps.
 
-新增加的内容在68-77行，我们首先在输入框中输入```nexus``` ,正常的化页面上应该只有一部手机。这时我们用```protrator```强大的选择能力－选择这部手机的元素```<li>```中的链接元素 ```<a>```并点击。
-正是模拟我们平常点击网页上的超链接一样的行为。
+We add more code into ***scenarios.js***, this makes sure the new feature added will not break previous code.
 
-我们来测试超链接跳转的结果。超链接跳转时地址栏会变成新的```url```,我们使用```browser.getLocationAbsUrl```方法来获取当前的```url```，注意Angular的应用中所有的URL都用一个```#```符号，
-它之后是Angular内部的路由(routing)机制。
+The added code is in line 68-77. First we enter `nexus` in input box and make sure there is only one phone on page.
 
-我们用javascript```split```方法拿到```#```之后部分的内容，如果运转正确的话，它的值应该就是我们在超链接中设置的值－```/phones/nexus-s```。
+Now we use `protrator` to simulate clicking link event. To test the browser redirect event, we use `browser.getLocationAbsUrl` to get current url. 
+
+We can check path (content after `#` in url) to verify redirecting works.
