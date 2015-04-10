@@ -1,13 +1,12 @@
-为了实现手机详细信息视图我们将会使用```$http```来获取数据，同时我们也要增添一个```phone-detail.html```视图模板。
+In addition to phones.json, the app/phones/ directory also contains one JSON file for each phone. 
+Take a look at ***nexus-s.json***.
 
-除了之前提到的```phones.json```，```app/phones/```目录也包含了每一部手机信息的json文件，这里我们用```nexus-s.json```作为例子，可以观察下了解手机的详细信息都有些什么。
+### Controller
 
-**控制器**
+We'll expand the **PhoneDetailCtrl** by using the **$http** service to fetch the JSON files. This works the same way as the phone list controller. 
+To construct the URL for the HTTP request, we use `$routeParams.phoneId` extracted from the current route by the $route service.
 
-我们使用```$http```服务从手机的单个json文件获取数据信息。这一过程应该在控制器中完成。看一下```controllers.js```中的```PhoneDetailCtrl```，我们把读到的数据付给```$scope.phone```,
-剩下的显示工作就是页面的事了。这和之前的手机列表控制器的工作方式是一样的。
+### View
 
-**模板**
-
-```phone-detail.html```文件中原有的TBD占位行已经被列表和构成手机详细信息的绑定替换掉了。这里我们使用AngularJS的{{表达式}}标记来显示单个属性，```ngRepeat```来显示数组类型的属性。
-Angular的双向绑定使在视图中渲染数据模型变得非常简单。
+In ***phone-detail.html***, the TBD placeholder line has been replaced with lists and bindings that comprise the phone details. 
+Note where we use the Angular {{expression}} markup and ngRepeat to project phone data from our model into the view.
