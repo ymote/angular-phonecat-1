@@ -1,10 +1,13 @@
-为了自动验证所有的东西都良好地集成起来，我们需要写一些端到端测试，导航到不同的URL上然后验证正确地视图被渲染出来。
+To automatically verify that everything is wired properly, we wrote end-to-end tests that 
+navigate to various URLs and verify that the correct view was rendered.
 
-观察下**scenarios.js**,我们打开浏览器，访问```app/index.html```，从```app.js```知道，这时候路由应该指向```/phones```，可以通过```browser.getLocaltionAbsUrl```来测试。
+In ***scenarios.js*** now test follows.
 
-我们现在有两个测试模块－所有手机的页面和一部手机的页面。第一个模块就是之前的端到端测试的代码，我们对手机列表的页面做了很详细的测试。
+First we simulate visit `app/index.html`. From our routing, we know it should point to the `/phone` url. 
+We can use `browser.getLocaltionAbsUrl` to test it.
 
-这里新增加的时第二个模块(76行上的```describe```),测路由工作的方式很直接，我们控制假想的浏览器直接访问相关的url,然后判断页面上的元素来了解是否停留在了正确的页面上。
+Now we have two test block -- one for all phones' page and another for phone detail page.
 
-这里我们把浏览器指向了```nexus-s```的详细信息的页面(第79行),正常情况下```phone-detail.html```会加载，我们知道上面的```{{phoneId}}```应该时```nexus-s```,
-在protractor中```{{ }}```可以通过```by.binding```来引用寻找。第84行完成了这一过程。
+To test the phone detail page (the `describe` block on line 76), we jump to `nexus-s`'s page and test DOM elemets in view. 
+
+Th `{{phoneId}}` should display `nexus-s`, we can use the `by.binding` api call in `protractor` to extract the value to verify it.
