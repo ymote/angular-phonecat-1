@@ -1,21 +1,39 @@
-**多视图，路由和布局模板**
+Our app is slowly growing and becoming more complex. Before, the app provided our users with a single view (the list of all phones), 
+and all of the template code was located in the ***index.html***. The next step in building the app is to add a view that will 
+show detailed information about each of the devices in our list.
 
-我们的应用正慢慢发展起来并且变得逐渐复杂。之前应用只给我们的用户提供了一个简单的界面（一张所有手机的列表），并且所有的模板代码位于```index.html```中。
-下一步是增加一个能够显示我们列表中每一部手机详细信息的页面。
+### Multiple Views
 
-为了增加详细信息视图，我们可以拓展```index.html```来同时包含两个视图的模板代码，但是这样会很快给我们带来麻烦。相反，我们要把```index.html```模板转变成“布局模板”。
-这是我们应用所有视图的通用模板。其他的“局部布局模板”随后根据当前的“路由”被充填入，从而形成一个完整视图展示给用户。
+To add the detailed view, we could expand the ***index.html*** file to contain template code for both views, but that would get 
+messy very quickly. Instead, we are going to turn the ***index.html*** template into what we call a "layout template". 
 
-AngularJS中应用的路由通过```$routeProvider```来声明，它是```$route```服务的提供者。这项服务使得控制器、视图模板与当前浏览器的URL可以轻易集成。应用这个特性我们就可以实现深链接，
-它允许我们使用浏览器的历史(回退或者前进导航)和书签。
+This is a template that is common for all views in our application. Other "partial templates" are then included into this 
+layout template depending on the current "route" — the view that is currently displayed to the user.
 
-**关于依赖注入（DI），注入器（Injector）和服务提供者（Providers）**
 
-依赖注入是AngularJS的核心特性，所以必须要学习下它是怎么工作的。
+### Routing
 
-当应用引导时，AngularJS会创建一个注入器，我们应用后面所有依赖注入的服务都会需要它。这个注入器自己并不知道```$http```和```$route```是干什么的，实际上除非它在模块定义的时候被配置过，
-否则它根本都不知道这些服务的存在。注入器唯一的职责是载入指定的服务模块，在这些模块中注册所有定义的服务提供者，并且当需要时给一个指定的函数注入依赖（服务）。这些依赖通过它们的提供者“懒惰式”
-（需要时才加载）实例化。
+Application routes in Angular are declared via the **$routeProvider**, which is the provider of the **$route** service.
+This service makes it easy to wire together controllers, view templates, and the current URL location in the browser. 
 
-提供者是提供（创建）服务实例并且对外提供API接口的对象，它可以被用来控制一个服务的创建和运行时行为。对于```$route```服务来说，```$routeProvider```对外提供了API接口，
-通过API接口允许你为你的应用定义路由规则。
+Using this feature, we can implement deep linking, which lets us utilize the browser's history (back and forward navigation) and bookmarks.
+
+
+### A Note About DI, Injector and Providers
+
+<a href="https://docs.angularjs.org/guide/di" target="_blank">dependency injection (DI)</a> is at the core of AngularJS, 
+so it's important for you to understand a thing or two about how it works.
+
+When the application bootstraps, Angular creates an injector that will be used to find and inject all of the services that 
+are required by your app. The injector itself doesn't know anything about what `$http` or `$route` services do. 
+In fact, the injector doesn't even know about the existence of these services unless it is configured with proper module definitions.
+
+The injector only carries out the following steps :
+
+  1. load the module definition(s) that you specify in your app
+  2. register all Providers defined in these module definitions
+  3. when asked to do so, inject a specified function and any necessary dependencies (services) that it lazily instantiates via their Providers.
+
+Providers are objects that provide (create) instances of services and expose configuration APIs that can be used to control 
+the creation and runtime behavior of a service. In case of the **$route** service, the **$routeProvider** exposes APIs that 
+allow you to define routes for your application.
