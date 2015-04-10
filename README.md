@@ -4,7 +4,8 @@ Take a look at ***nexus-s.json***.
 ### Controller
 
 We'll expand the **PhoneDetailCtrl** by using the **$http** service to fetch the JSON files. This works the same way as the phone list controller. 
-To construct the URL for the HTTP request, we use `$routeParams.phoneId` extracted from the current route by the $route service.
+To construct the URL for the HTTP request, we use `$routeParams.phoneId` extracted from the current route by the $route service 
+(`:phoneId` router segment for detail page routing in ***app.js***).
 
 ### View
 
