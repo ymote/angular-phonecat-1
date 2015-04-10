@@ -1,10 +1,11 @@
-我们来写一个新的单元测试来测试```$http```服务。这个测试和我们在第5章中为```PhoneListCtrl```写的那个很像。
+We wrote a new unit test that is similar to the one we wrote for the **PhoneListCtrl** controller in Chpater 5.
 
-看看第41行，我们模拟```$http```的GET方法的行为。在```PhoneDetailCtrl```中我们使用```$http```来获得单个手机的json文件的内容。
+In ***controllerSpec.js***, we mock `$http`'s GET method (line 41). 
 
-这里我们假设有个文件```phones/xyz.json```，读取这个文件获得的内容(```respond```)是```{name:'phone xyz'}```。注意我们只在乎这个流程是不是顺利，不是很关心文件的内容，所以虚构比较简单的返回内容方便测试。
+To mock http request, we assume there is a file `phones/xyz.json`, its content (`respond`) is `{name: 'phone xyz'}`. Notice we 
+are only mocking the request, not sending actual http request. 
 
-第50行模拟读取返回前的情况，这时候```scope.phone```应该没有设置。```$httpBackend.flush()```模拟了读取成功的过程，所以53行我们可以测试返回的内容了。可以看到返回简单的内容方便测试。
-而且简单的内容通过的话，因为同样的原理，我们实际的手机文件也能顺利读取到。
+On line 50, we are tesing case where the request has not sent. So the `scope.phone` should be undefined. The key to test `$http` is 
+the `$httpBackend.flush()` method, which triggers our mock request. So on line 53, we can test the request output.
 
-现在对```$http```服务的测试应该比较熟悉了吧。其实我们并没有真的去读取后台，只是假想了一个来测试我们的读取的流程而已。
+This is the common flow of unit testing http request. The key is to mock the request and response result.
