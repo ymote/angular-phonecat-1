@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>My HTML File</title>
+  
+</head>
+<body>
+
+
+
+</body>
+</html>
+@@@
+prompt: Let's see how we code this
+run: {command: "undo"}
+run: {command: "undo"}
+run: {command: "undo"}
+run: {command: "undo"}
+run: {command: "undo"}
+run: {command: "undo"}
+moveTo: 8:2
+type: <link rel="stylesheet" href="lib/bootstrap.css">
+tooltip: {text: "Add bootstrap css framework. Don't worry about the actual paths. They sit on our server.'", wait: 1000}
+run: {command: "newlineAndIndent"}
+type: <link rel="stylesheet" href="css/app.css">
+tooltip: {text: "Add our customize css styles, which is empty right now", wait: 2000}
+run: {command: "newlineAndIndent"}
+type: <script src="lib/angular.js"></script>
+tooltip: {text: "Add the AngularJS library", wait: 2000}
+moveTo: 14:2
+type: <p>Nothing here {{'yet' + '!'}}</p>
+tooltip: {text: "Use double curly brace to evaluate javascript expression", wait: 2000}
