@@ -9,7 +9,9 @@ view.
 We have added a new directive, called `ng-controller`, which attaches a `PhoneListCtrl`
 __controller__ to the &lt;body&gt; tag.
 
-## Model and Controller
+![mvc](http://live4code.github.io/angular-phonecat/tutorial_02.png "MVC in Angular")
+
+### Model and Controller
 
 The data __model__ (a simple array  of phones in object literal notation) is now instantiated within
 the `PhoneListCtrl` __controller__. The __controller__ is simply a constructor function that takes a
