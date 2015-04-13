@@ -12,7 +12,7 @@ available as a filter input in the list repeater (`phone in phones | filter:`__`
 changes to the data model cause the repeater's input to change, the repeater efficiently updates
 the DOM to reflect the current state of the model.
 
-<img  class="diagram" src="img/tutorial/tutorial_03.png">
+![mvc](http://live4code.github.io/angular-phonecat/tutorial_03.png "Chapter 3 MVC pattern")
 
 2. Use of the `filter` filter: The filter function uses the
 `query` value to create a new array that contains only those records that match the `query`.
