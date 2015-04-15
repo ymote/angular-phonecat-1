@@ -9,3 +9,4 @@ bower_components/
 *.log
 test_out/
 test_e2e/
+*cm-movie*
