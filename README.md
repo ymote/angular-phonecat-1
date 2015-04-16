@@ -1,7 +1,13 @@
-现在我们来学习下对过滤器的单元测试，这些测试实际上很容易完成。
+Filters, like any other component, should be tested and these tests are very easy to write.
 
-看一下**filtersSpec.js**文件，注意在我们在第7行注入了过滤器模块，这样测试方法就能找到我们的过滤器。
+Take a lookat **filtersSpec.js**. 
 
-第13行的```inject```要关注下，这是Angular的命名规则。我们在过滤器的名字后面要加上```Filter```,Angular才能正确注入过滤器。
+We must call `beforeEach(module('phonecatFilters'))` before any of our filter tests execute. 
+This call loads our phonecatFilters module into the injector for this test run.
 
-过滤器的测试其实就是给定输入的内容判断输出的符号是不是我们预期的。
+Note that we call the helper function, inject(function(checkmarkFilter) { ... }), to get access to the filter 
+that we want to test. See <a href="https://docs.angularjs.org/api/ngMock/function/angular.mock.inject" target="_blank">angular.mock.inject()</a>.
+
+Notice that the suffix 'Filter' is appended to your filter name when injected. 
+See the <a href="https://docs.angularjs.org/guide/filter#using-filters-in-controllers-services-and-directives" target="_blank">Filter 
+Guide</a> section where this is outlined.
