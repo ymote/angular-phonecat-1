@@ -1,18 +1,19 @@
-为了创建一个新的过滤器，先创建一个```phonecatFilters```模块，并且将定制的过滤器注册给这个模块。代码在**filters.js**文件中。
+### Custom Filter
 
-我们的过滤器命名为```checkmark```。它的输入要么是true，要么是false，并且我们返回两个表示true或false的unicode字符（```\u2713```和```\u2718```）。
+In order to create a new filter, you are going to create a `phonecatFilters` module and register your custom filter with this module (**filters.js**). 
 
-现在我们的过滤器准备好了，我们需要将我们的```phonecatFilters```模块作为一个依赖注册到我们的主模块```phonecat```上。这在**app.js**第8行上完成。
+The name of our filter is `"checkmark"`. The input evaluates to either true or false, and we return one of 
+the two unicode characters we have chosen to represent true `(\u2713 -> ✓)` or false `(\u2718 -> ✘)`.
 
- **index.html模板**
+Now that our filter is ready, we need to register the `phonecatFilters` module as a dependency for our main phonecatApp module (line 8 in **app.js**). 
 
-由于我们的模板代码写在**app/js/filter.js**文件中，所以我们需要在index.html中引入这个文件(第15行)。
+### Template
 
-在AngularJS模板中使用过滤器的语法是：
+The syntax for using filters in Angular templates is as follows:
 
-```{{ expression | filter }}```
+``` {{ expression | filter }} ```
 
-我们把过滤器应用到手机详细信息模板中**phone-detail.html**：在所有输出true或false的地方我们都加上了过滤器来显示定制的符号。
+Take a look at **phone-detail.html** on how it is used.
 
-过滤器是全局的，即我们可以在任何页面上引用```checkmark```来修饰输出true或false的地方，而以后我们如果想改用其他的显示方式，只要修改过滤器的内容，
-所有引用该过滤器的页面都会自动的更新。这种用法是不是很方便？
+We can use filters in any templates to format contents. The great thing about it is, if at a later time we want to change the look of content, 
+we only need to change code in the `phonecatFilters`, and it is automatically applied to different templates.
