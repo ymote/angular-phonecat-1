@@ -1,0 +1,30 @@
+<img ng-src="{{phone.images[0]}}" class="phone">
+
+<ul class="specs">
+  <li>
+    <span>Hardware</span>
+    <dl>
+      <dt>CPU</dt>
+      <dd>{{phone.hardware.cpu}}</dd>
+      <dt>USB</dt>
+      <dd>{{phone.hardware.usb}}</dd>
+      <dt>Audio / headphone jack</dt>
+      <dd>{{phone.hardware.audioJack}}</dd>
+      <dt>FM Radio</dt>
+        
+      <dt>Accelerometer</dt>
+        
+    </dl>
+  </li>
+</ul>
+@@@
+prompt: Let's see how to use filter
+run: {command: "undo"}
+run: {command: "undo"}
+moveTo: 13:6
+type: <dd>{{phone.hardware.fmRadio | checkmark}}</dd>
+tooltip: {text: "phone.hardware.fmRadio is the input passed to our checkmark filter. It has value of true or false. And depending on the value, here prints unicode characters", wait:10000}
+moveTo: 15:6
+type: <dd>{{phone.hardware.accelerometer | checkmark}}</dd>
+tooltip: {text: "another usage example"}
+
