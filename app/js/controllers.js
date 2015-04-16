@@ -25,8 +25,9 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', '$h
     };
 
     //add a $scope.back method to return to the phone list page
-
-
+    $scope.back = function(){
+      
+    };
 
   }]);
 
