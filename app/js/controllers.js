@@ -22,9 +22,9 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', '$h
 
     $scope.setImage = function(imageUrl) {
       $scope.mainImageUrl = imageUrl;
-    }
+    };
 
-    //添加控制器方法$scope.back,返回显示所有设备的页面
+    //add a $scope.back method to return to the phone list page
 
 
 
