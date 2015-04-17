@@ -16,7 +16,7 @@ describe('PhoneCat App', function() {
       element(by.css('.phone-thumbs li:nth-child(3) img')).click();
       expect(element(by.css('img.phone')).getAttribute('src')).toMatch(/img\/phones\/nexus-s.2.jpg/);
 
-      //模拟点击第一个缩略图时大图src应该指向nexus-s.0.jpg
+      //simulate click the 1st thumbnail image, now the main image path should contain 'img\/phones\/nexus-s.0.jpg'
 
 
     });
