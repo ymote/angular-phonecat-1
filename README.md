@@ -1,19 +1,40 @@
-我们创建了一个新文件－**app/js/services.js**， 来定制的REST服务。Angular官方的标准库**angular-resource.js**可以用来快速创建REST服务接口，它包含了```ngResource```模块以及其中的```$resource```服务，
-我们一会就会用到它们。
+In this exercise, we change the way our app fetches data. We define a custom service that represents a 
+<a href="http://en.wikipedia.org/wiki/Representational_State_Transfer" target="_blank">RESTful</a> client. 
+Using this client we can make requests to the server for data in an easier way, without having to deal with the lower-level `$http`
+API, HTTP methods and URLs.
 
-看一下**app/js/services.js**，我们使用模块API通过一个工厂方法注册了一个定制服务。我们传入服务的名字```Phone```和工厂函数。
-工厂函数和控制器构造函数差不多，它们都通过函数参数声明依赖服务。```Phone```服务声明了它依赖于```$resource```服务。
+The RESTful functionality is provided by Angular in the `ngResource` module.
 
-```$resource```服务使得用短短的几行代码就可以创建一个RESTful客户端。我们的应用使用这个客户端来代替底层的```$http```服务。
+### Service
 
-**控制器**
+We create our own service to provide access to the phone data on the server **app/js/services.js**
 
-通过重构掉底层的```$http```服务，把它放在一个新的服务```Phone```中，我们可以大大简化子控制器（```PhoneListCtrl```和```PhoneDetailCtrl```）。
-AngularJS的```$resource```相比于```$http```更加适合于与RESTful数据源交互。我们通过简单的```query```语句来查询所有的手机。
+We used the module API to register a custom service using a factory function. We passed in the name of the service - 'Phone' - 
+and the factory function. The factory function is similar to a controller's constructor in that both can declare dependencies to be 
+injected via function arguments. The Phone service declared a dependency on the $resource service.
 
-需要注意的是，当调用```Phone```服务的方法是我们并没有传递任何回调函数。尽管这看起来结果是同步返回的，其实根本就不是。
-被同步返回的是一个```“future”```—一个对象，当XHR相应返回的时候会填充进数据。鉴于AngularJS的数据绑定，我们可以使用future并且把它绑定到我们的模板上。
-然后，当数据到达时，我们的视图会自动更新。
+The `$resource` service makes it easy to create a RESTful client with just a few lines of code. This client can then be 
+used in our application, instead of the lower-level `$http` service.
 
-有的时候，单单依赖future对象和数据绑定不足以满足我们的需求，所以在这些情况下，我们需要添加一个回调函数来处理服务器的响应。
-```PhoneDetailCtrl```控制器通过在一个回调函数中设置```mainImageUrl```就是一个例子。
+### Controller
+
+We simplified our sub-controllers (**PhoneListCtrl** and **PhoneDetailCtrl**) by factoring out the lower-level $http service, 
+replacing it with a new service called `Phone`. Angular's `$resource` service is easier to use than $http for interacting with data sources 
+exposed as RESTful resources. It is also easier now to understand what the code in our controllers is doing.
+
+Now we query for all phones use the simple statement
+
+```
+$scope.phones = Phone.query();
+```
+
+An important thing to notice in the code above is that we don't pass any callback functions when invoking methods of our `Phone` service. 
+Although it looks as if the result were returned synchronously, that is not the case at all. 
+
+What is returned synchronously is a "future" — an object, which will be filled with data when the XHR response returns. Because of the 
+data-binding in Angular, we can use this future and bind it to our template. Then, when the data arrives, 
+the view will automatically update.
+
+Sometimes, relying on the future object and data-binding alone is not sufficient to do everything we require, so in these cases, 
+we can add a callback to process the server response. The **PhoneDetailCtrl** controller illustrates this by setting the `mainImageUrl` 
+in a callback.
