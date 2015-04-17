@@ -19,4 +19,8 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Ph
     $scope.setImage = function(imageUrl) {
       $scope.mainImageUrl = imageUrl;
     }
+    
+    //$scope.models is an array contain all phones
+    $scope.models = [];
+    
   }]);
