@@ -12,6 +12,9 @@ describe('PhoneCat controllers', function() {
           ctrl = $controller('PhoneListCtrl', {$scope:scope});
 
       expect(scope.phones.length).toBe(3);
+      
+      //add expect test, use expect(...).toBe(...) to test the first phone's name is Nexus S
+      
     }));
 
   });
