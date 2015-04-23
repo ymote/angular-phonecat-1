@@ -19,17 +19,16 @@
       <div class="col-md-2">
         <!--Sidebar content-->
 
-        Search: <input ng-model="query">
-        <p class="query">
-        Query Keyword is <!-- show query -->
-        </p>
+        
+        
+        
 
       </div>
       <div class="col-md-10">
         <!--Body content-->
 
         <ul class="phones">
-          <li ng-repeat="phone in phones | filter:query">
+          <li ng-repeat="phone in phones">
             {{phone.name}}
             <p>{{phone.snippet}}</p>
           </li>
@@ -37,15 +36,7 @@
 
       </div>
     </div>
-  
-    <table class="table table-bordered table-striped">
-      <tr><th>row number</th></tr>
-      <!-- use ng-repeat to iterate through $scope.numbers -->
-      <tr  >
-        <td><!-- output the number value --></td>
-      </tr>
-    </table>
-    
   </div>
+
 </body>
 </html>
