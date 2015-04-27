@@ -1,7 +1,6 @@
 'use strict';
 
 describe('Test PhoneCat App', function() {
-
   describe('Phone list view', function() {
 
     beforeEach(function() {
@@ -12,6 +11,7 @@ describe('Test PhoneCat App', function() {
 
       var phoneList = element.all(by.repeater('phone in phones'));
       var query = element(by.model('query'));
+      expect(phoneList.count()).toBe(3);
 
       query.sendKeys('motorola');
       //how many phones in phoneList now?
