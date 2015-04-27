@@ -4,7 +4,7 @@ the repeater, and letting the data binding magic do the rest of the work.
 
 ### Data binding
 
-<img class="diagram" src="img/tutorial/tutorial_04.png">
+<img class="diagram" src="http://live4code.github.io/angular-phonecat/tutorial_04.png">
 
 Whenever the model changes (for example because a user changes the order with the select drop down menu), Angular's
 data-binding will cause the view to automatically update. No bloated DOM manipulation code is
