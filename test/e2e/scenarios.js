@@ -18,7 +18,8 @@ describe('PhoneCat App', function() {
     });
 
     it('should display placeholder page with phoneId', function() {
-      expect(element(by.binding('phoneId')).getText()).toBe('nexus-s');
+      //what is the {{phoneId}} value now? 
+      expect(element(by.binding('phoneId')).getText()).toBe('');
     });
   });
 });
