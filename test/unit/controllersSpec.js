@@ -21,8 +21,8 @@ describe('PhoneCat controllers', function() {
     it('should fetch phone detail', function() {
       expect(scope.phone).toBeUndefined();
       $httpBackend.flush();
-
-      expect(scope.phone).toEqual({name:'phone xyz'});
+      //what should scope.phone be?
+      expect(scope.phone).toEqual('');
     });
   });
 });
