@@ -18,5 +18,5 @@ phonecatApp.controller('PhoneListCtrl', function($scope) {
   ];
 
   //change the default orderProp to see difference 
-  $scope.orderProp = 'age';
+  $scope.orderProp = 'name';
 });
